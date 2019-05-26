@@ -1,0 +1,50 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block body %}
+<div class="row searchbg shadow-sm p-5 bg-dark">
+  <div class="col-sm-2">
+  </div>
+  <div class="col-sm-8 d-flex justify-content-center">
+    <form action="{% url 'jobsearch' %}" method="POST">{% csrf_token %}
+      <div class="form-row">
+        <div class="col-sm-auto">
+          <span>Find The Right Job</span>
+        </div>
+        <div class="col-sm-auto">
+          <input type="text" class="form-control" name="query" placeholder="Job Title, Keyword, Career">
+        </div>
+        <div class="col-sm-auto">
+          <input type="text" class="form-control" name="city" placeholder="City">
+        </div>
+        <div class="col-sm-auto">
+          <select class="form-control" name="country">
+            <option value="ca">Canada</option>
+          </select>
+        </div>
+        <div class="col-sm-auto">
+          <button type="submit" class="btn btn-mybtn mb-2">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-sm-2">
+  </div>
+</div>
+<div class="container jobbg shadow p-3">
+  <ul class="jobs rounded" id="jobs">
+    {% for job in jobs %}
+        <li><span class="p-comp"><b>{{ job.company }}</b></span><br>
+            <span class="p-left"><b>{{ job.title }}</b> </span><br>
+            <span class="p-right">{{ job.location }}<br><hr>
+            <span class="p-left">{{ job.snippet }}</span><br><br>
+            {% if job.apply %}
+            <a href="{{ job.apply }}"  target="_blank" class="btn btn-mybtn smallbtn" role="button" aria-pressed="true">Apply to Job</a>
+            {% endif %}
+            </span>
+        </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}

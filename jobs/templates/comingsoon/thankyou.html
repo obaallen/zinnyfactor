@@ -1,0 +1,18 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block body %}
+<div class="jumbotron text-xs-center">
+  <h1 class="display-3">Thank You!</h1>
+  <p class="lead">We will let you know when we have everything ready. For now, click on the buttons to continue.</p>
+  <hr>
+  <p>
+    Having trouble? <a href="https://zinnyfactor.com/blog/contact/">Contact us</a>
+  </p>
+  <p class="lead">
+    <a class="btn btn-mybtn btn-sm" href="{% url 'index' %}" role="button">Continue to homepage</a>
+    <a class="btn btn-mybtn btn-sm" href="{% url 'index' %}" role="button">Find jobs in your area</a>
+    <a class="btn btn-mybtn btn-sm" href="{% url 'index' %}" role="button">Read up career articles</a>
+  </p>
+</div>
+{% endblock %}

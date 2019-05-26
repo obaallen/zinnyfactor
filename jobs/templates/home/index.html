@@ -1,0 +1,109 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block body %}
+
+  <!-- H E R O -->
+  <section id="hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+          <img src="{% static 'jobs/images/zf-hero.svg' %}" class="img-fluid" alt="Demo image">
+        </div>
+        <div class="col-md-7 content-box hero-content">
+          <!-- <span>Unlimited Data</span> -->
+          <h1>Welcome to <b>Zinny Factor</b></h1>
+          <p>The go-to destination for new graduates, career shifters, immigrants and next-gen workforce to find meaning in work and career.</p><br>
+          <span class="inline"><a href="#marketing" class="btn btn-outline-mybtn">Get Started</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- E N D  H E R O -->
+
+  <!-- E N D  M A R K E T I N G -->
+  <section id="marketing">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="content-box">
+            <span>New here?</span>
+            <h2>Here's how Zinny Factor works for you!</h2>
+            <p>Click below to find out more.</p><br>
+            <a href="#col2" id="advice" class="btn btn-outline-mybtn">Career Advice & Resources</a> <br>
+            <a href="#col3" id="job" class="btn btn-outline-mybtn">Search for Jobs</a> <br>
+            <a href="#col4" id="network" class="btn btn-outline-mybtn">Network with Other Professionals</a>
+          </div>
+        </div>
+        <div class="col-md-7 content-box center display" id="col1">
+            <img src="{% static 'jobs/images/welcome.svg' %}" class="img-fluid" width="70%" alt="new user">
+        </div>
+        <div class="col-md-7 vl content-box center mktdisplay1" id="col2">
+            <h2>Get Career Advice!</h2>
+            <p>Read our articles to grow and build your career, have someone proofread your resume, download free resources, and find help.</p><br>
+            <a href="https://wwww.zinnyfactor.com" id="advice" class="btn btn-outline-mybtn">Read helpful articles</a> <br>
+            <a href="#" class="btn btn-outline-mybtn">Improve your resume</a> <br>
+            <a href="#" class="btn btn-outline-mybtn">Prep for interviews</a>
+        </div>
+        <div class="col-md-7 vl content-box center mktdisplay1" id="col3">
+          <h2>Find the Right Job!</h2>
+          <p>Finding a job especially when you are relatively new to the workforce (immigrant, new grad, making a career change or next-generation) can be challenging. We are here to ease the process.
+          </p><br>
+          <form class="p-4 bd-search align-items-center" action="{% url 'jobsearch' %}" method="POST">{% csrf_token %}
+            <span class="algolia-autocomplete">
+              <input type="search" class="form-control ds-input" id="search-input" placeholder="Search for jobs..."  name="query" aria-label="Search for..." autocomplete="off" data-docs-version="4.3" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" dir="auto">
+              <br><button type="submit" class="btn btn-mybtn mb-2">Search Jobs</button>
+          </form>
+        </div>
+        <div class="col-md-7 vl content-box center align-middle mktdisplay1"  id="col4">
+          <h2>Network & Connect!</h2>
+          <p>Find someone in your field who can mentor you, refer someone to a job, ask questions, get answers and discover upcoming events.</p><br>
+          <a href="{% url 'forum' %}" class="btn btn-mybtn">Join ZF-Connect</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr>
+
+  <!-- P R I C I N G -->
+  <section id="pricing">
+    <div class="container">
+      <div class="title-block">
+        <h2>Career Advice & Articles</h2>
+        <p>Our articles range from workplace issues to challenges of new graduates or immigrant in the workplace, career change, worker’s lifestyle and more.</p>
+      </div>
+      <div class="row">
+        {% for post in posts %}
+        <div class="col-md-4">
+          <div class="pricing-box">
+            <img src="{{ post.image }}" class="img-fluid" alt="Demo image">
+            <div class="divider-light"></div>
+            <h4>{{ post.title }}</h4>
+            <small>{{ post.date }}</small>
+            <p>{{ post.snippet|safe }}</p>
+            <div class="text-center">
+              <a href="{{ post.link }}" class="btn btn-outline-mybtn">Read More</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="center">
+        <a href="https://www.zinnyfactor.com" class="btn btn-mybtn m-4">Find Other Articles</a>
+      </div>
+    </div>
+  </section>
+  <!-- E N D  P R I C I N G -->
+
+  <!-- C A L L  T O  A C T I O N -->
+  <section class="jobbg">
+    <div class="container text-center">
+      <h2>Some experts say that 70 percent of people ended up in their current position thanks to networking.</h2>
+      <div class="title-block">
+        <p>Others say it’s more like 80 percent or even 85 percent. We want to build a local community and we want you to be a part of it. Meet new people, find support, learn something new, pursue your passion and grow your career.</p>
+        <a href="{% url 'forum' %}" class="btn btn-mybtn m-4">Network with ZF-Connect</a>
+      </div>
+    </div>
+  </section>
+  <!-- E N D  C A L L  T O  A C T I O N -->
+{% endblock %}

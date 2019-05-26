@@ -1,0 +1,104 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block extra %}
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'comingsoon/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'comingsoon/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'comingsoon/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'comingsoon/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'comingsoon/css/main.css' %}">
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+	<script src="{% static 'comingsoon/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'comingsoon/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'comingsoon/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'comingsoon/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'comingsoon/vendor/countdowntime/moment.min.js' %}"></script>
+	<script src="{% static 'comingsoon/vendor/countdowntime/moment-timezone.min.js' %}"></script>
+	<script src="{% static 'comingsoon/vendor/countdowntime/moment-timezone-with-data.min.js' %}"></script>
+	<script src="{% static 'comingsoon/vendor/countdowntime/countdowntime.js' %}"></script>
+	<script>
+		$('.cd100').countdown100({
+			/*Set Endtime here*/
+			/*Endtime must be > current time*/
+			endtimeYear: 0,
+			endtimeMonth: 0,
+			endtimeDate: 35,
+			endtimeHours: 18,
+			endtimeMinutes: 0,
+			endtimeSeconds: 0,
+			timeZone: ""
+			// ex:  timeZone: "America/New_York"
+			//go to " http://momentjs.com/timezone/ " to get timezone
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'comingsoon/vendor/tilt/tilt.jquery.min.js' %}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'comingsoon/js/main.js' %}"></script>
+{% endblock %}
+{% block body %}
+
+
+	<div class="bg-img1 size1 overlay1" style="background-image: url('images/bg01.jpg');">
+		<div class="size1 p-l-15 p-r-15 p-t-30 p-b-50">
+
+			<div class="wsize1 m-lr-auto">
+				<p class="txt-center l1-txt1 p-b-60">
+					ZF Connect is <span class="l1-txt2">Coming Soon</span>, follow us for update now!
+				</p>
+
+				<form class="w-full flex-w flex-c-m validate-form"  action="{% url 'subscribe' %}" method="POST">{% csrf_token %}
+
+					<div class="wrap-input100 validate-input m-b-20" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100 placeholder0 m1-txt1" type="text" name="email" placeholder="Email Address">
+						<span class="focus-input100"></span>
+					</div>
+
+
+					<button class="flex-c-m size3 m1-txt2 how-btn1 trans-04 m-b-20">
+						Subscribe
+					</button>
+				</form>
+
+				<p class="txt-center s1-txt1 p-t-5">
+					And don’t worry, we hate spam too! You can unsubcribe at anytime.
+				</p>
+			</div>
+
+
+			<div class="flex-w flex-c-m cd100 wsize1 m-lr-auto p-t-116">
+				<div class="flex-col-c-m size2 bor1 m-l-10 m-r-10 m-b-15">
+					<span class="l1-txt3 p-b-9 days">35</span>
+					<span class="s1-txt2">Days</span>
+				</div>
+
+				<div class="flex-col-c-m size2 bor1 m-l-10 m-r-10 m-b-15">
+					<span class="l1-txt3 p-b-9 hours">17</span>
+					<span class="s1-txt2">Hours</span>
+				</div>
+
+				<div class="flex-col-c-m size2 bor1 m-l-10 m-r-10 m-b-15">
+					<span class="l1-txt3 p-b-9 minutes">50</span>
+					<span class="s1-txt2">Minutes</span>
+				</div>
+
+				<div class="flex-col-c-m size2 bor1 m-l-10 m-r-10 m-b-15">
+					<span class="l1-txt3 p-b-9 seconds">39</span>
+					<span class="s1-txt2">Seconds</span>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Zinny Factor | Get Career Advice, Find Jobs, Network</title>
+        <link rel="icon" type="image/png" href="http://zinnyfactor.com/wp-content/uploads/2016/03/cropped-FAVICON-1.png"/>
+        <link rel="stylesheet" href="{% static 'jobs/stylesheets/style.css' %}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <script src="{% static 'jobs/jobs.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/5cea967f2135900bac128f32/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+        </script>
+        <!--End of Tawk.to Script-->
+        <!-- Ionic icons -->
+        <link href="https://unpkg.com/ionicons@4.2.0/dist/css/ionicons.min.css" rel="stylesheet">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+        {% block extra %}
+        {% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+      <div class="container-fluid">
+        <div class="row headhome shadow-sm bg-white sticky center navbar navbar-default navbar-expand-lg">
+
+          <div class="col-sm-2 logo">
+            <a class="logo-link" href="{% url 'index' %}"><img src="http://zinnyfactor.com/wp-content/uploads/2016/03/ZINNYFACTOR.png" width="300px" alt="Zinny Factor"></a>
+          </div>
+          <div class="col-sm-3 center">
+
+          </div>
+          <div class="col-sm-7 p-3 justifylogin">
+            <div class="col-sm inline">
+              <a href="{% url 'forum' %}" class="btn btn-outline-mybtn" role="button" aria-pressed="true">NETWORK</a>
+              <a href="{% url 'jobindex' %}" class="btn btn-outline-mybtn" role="button" aria-pressed="true">FIND JOB</a>
+              <a href="http://zinnyfactor.com/" class="btn btn-outline-mybtn" role="button" aria-pressed="true">CAREER BLOG</a>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="col-sm dropdown show inline">
+              <a class="btn btn-mybtn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                MY ACCOUNT
+              </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="{% url 'saved' %}">Saved Jobs</a>
+                <a class="dropdown-item" href="{% url 'logout_view' %}">Sign out</a>
+              </div>
+            </div>
+            {% else %}
+            <a href="{% url 'register' %}" class="btn btn-mybtn" role="button" aria-pressed="true">LOG IN / REGISTER</a>
+            {% endif %}
+          </div>
+        </div>
+        {% block body %}
+        {% endblock %}
+      </div>
+      <!--  F O O T E R  -->
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <h5>General</h5>
+              <ul>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Write for us/ Submit an article</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Term of Use</a></li>
+                <li><a href="#">Privacy policy</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+              <h5>Explore<br>Zinny Factor</h5>
+              <ul>
+                <li><a href="{% url 'jobindex' %}">Jobs</a></li>
+                <li><a href="http://zinnyfactor.com/">Career Blog</a></li>
+                <li><a href="{% url 'forum' %}">ZF-Connect Network</a></li>
+                <li><a href="http://zinnyfactor.com/resources/">Resources</a></li>
+                <li><a href="#">ZF for Business</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+              <h5>Career Blog</h5>
+              <ul>
+                <li><a href="http://zinnyfactor.com/category/workplace/">Employee’s Workplace</a></li>
+                <li><a href="http://zinnyfactor.com/category/employers/">Entrepreneur’s Workplace</a></li>
+                <li><a href="http://zinnyfactor.com/category/the-immigrant-worker/">The Immigrant Worker</a></li>
+                <li><a href="http://zinnyfactor.com/category/side-hustle-series/">Side Hustle Series</a></li>
+                <li><a href="http://zinnyfactor.com/category/inspiration/">Inspiration</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+              <h5>Zinny Factor</h5>
+              <h6>Our Vision</h6>
+              <p>Provide information and opportunities to increase satisfaction in the life of workers.</p>
+              <p><a href="mailto:zinnyfactor@gmail.com" class="external-links">zinnyfactor@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <a href="https://www.facebook.com/zinnyfactor" target="_blank"><i class="icon ion-logo-facebook"></i></a>
+                <a href="https://www.instagram.com/zinnyfactor" target="_blank"><i class="icon ion-logo-instagram"></i></a>
+                <a href="https://www.twitter.com/zinnyfactor" target="_blank"><i class="icon ion-logo-twitter"></i></a>
+                <a href="https://www.youtube.com/zinnyfactor" target="_blank"><i class="icon ion-logo-youtube"></i></a>
+              </div>
+              <div class="col-md-6 col-xs-12">
+                <small>2018 &copy; All rights reserved.</small>
+              </div>
+          </div>
+        </div>
+      </footer>
+      <!--  E N D  F O O T E R  -->
+    </body>
+  </html>
