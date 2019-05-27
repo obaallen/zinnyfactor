@@ -4,7 +4,7 @@
 <html>
     <head>
         <title>Zinny Factor | Get Career Advice, Find Jobs, Network</title>
-        <link rel="icon" type="image/png" href="http://zinnyfactor.com/wp-content/uploads/2016/03/cropped-FAVICON-1.png"/>
+        <link rel="icon" type="image/png" href="http://zinnyfactor.com/blog/wp-content/uploads/2016/03/cropped-FAVICON-1.png"/>
         <link rel="stylesheet" href="{% static 'jobs/stylesheets/style.css' %}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <script src="{% static 'jobs/jobs.js' %}"></script>
@@ -37,7 +37,7 @@
         <div class="row headhome shadow-sm bg-white sticky center navbar navbar-default navbar-expand-lg">
 
           <div class="col-sm-2 logo">
-            <a class="logo-link" href="{% url 'index' %}"><img src="http://zinnyfactor.com/wp-content/uploads/2016/03/ZINNYFACTOR.png" width="300px" alt="Zinny Factor"></a>
+            <a class="logo-link" href="{% url 'index' %}"><img src="http://zinnyfactor.com/blog/wp-content/uploads/2016/03/ZINNYFACTOR.png" width="300px" alt="Zinny Factor"></a>
           </div>
           <div class="col-sm-3 center">
 
@@ -46,7 +46,7 @@
             <div class="col-sm inline">
               <a href="{% url 'forum' %}" class="btn btn-outline-mybtn" role="button" aria-pressed="true">NETWORK</a>
               <a href="{% url 'jobindex' %}" class="btn btn-outline-mybtn" role="button" aria-pressed="true">FIND JOB</a>
-              <a href="http://zinnyfactor.com/" class="btn btn-outline-mybtn" role="button" aria-pressed="true">CAREER BLOG</a>
+              <a href="http://zinnyfactor.com/blog/" class="btn btn-outline-mybtn" role="button" aria-pressed="true">CAREER BLOG</a>
             </div>
             {% if user.is_authenticated %}
             <div class="col-sm dropdown show inline">
@@ -88,20 +88,20 @@
               <h5>Explore<br>Zinny Factor</h5>
               <ul>
                 <li><a href="{% url 'jobindex' %}">Jobs</a></li>
-                <li><a href="http://zinnyfactor.com/">Career Blog</a></li>
+                <li><a href="http://zinnyfactor.com/blog/">Career Blog</a></li>
                 <li><a href="{% url 'forum' %}">ZF-Connect Network</a></li>
-                <li><a href="http://zinnyfactor.com/resources/">Resources</a></li>
+                <li><a href="http://zinnyfactor.com/blog/resources/">Resources</a></li>
                 <li><a href="#">ZF for Business</a></li>
               </ul>
             </div>
             <div class="col-md-3">
               <h5>Career Blog</h5>
               <ul>
-                <li><a href="http://zinnyfactor.com/category/workplace/">Employee’s Workplace</a></li>
-                <li><a href="http://zinnyfactor.com/category/employers/">Entrepreneur’s Workplace</a></li>
-                <li><a href="http://zinnyfactor.com/category/the-immigrant-worker/">The Immigrant Worker</a></li>
-                <li><a href="http://zinnyfactor.com/category/side-hustle-series/">Side Hustle Series</a></li>
-                <li><a href="http://zinnyfactor.com/category/inspiration/">Inspiration</a></li>
+                <li><a href="http://zinnyfactor.com/blog/category/workplace/">Employee’s Workplace</a></li>
+                <li><a href="http://zinnyfactor.com/blog/category/employers/">Entrepreneur’s Workplace</a></li>
+                <li><a href="http://zinnyfactor.com/blog/category/the-immigrant-worker/">The Immigrant Worker</a></li>
+                <li><a href="http://zinnyfactor.com/blog/category/side-hustle-series/">Side Hustle Series</a></li>
+                <li><a href="http://zinnyfactor.com/blog/category/inspiration/">Inspiration</a></li>
               </ul>
             </div>
             <div class="col-md-3">
