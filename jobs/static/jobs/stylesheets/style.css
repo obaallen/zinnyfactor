@@ -345,10 +345,6 @@ section {
   background-size: cover;
 }
 
-.review-one {
-  background-image: url('images/profile-picture-one.jpg');
-}
-
 .personal-info {
 	padding: 5px 0 20px 0;
 	border-bottom: 1px solid #edf1f2;
@@ -423,7 +419,6 @@ section {
 ===============================================*/
 
 #call-to-action {
-	background-image: url('images/call-to-action.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100%;
