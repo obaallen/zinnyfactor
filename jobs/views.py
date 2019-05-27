@@ -301,7 +301,7 @@ def registered(request):
     last_name = request.POST.get("last_name", False)
     email = request.POST.get("email", False)
     jobtitle = request.POST.get("job_title", False)
-    company = request.POST.get("company", False)
+    companyname = request.POST.get("company", False)
     years = request.POST.get("years", False)
     city = request.POST.get("city", False)
     province = request.POST.get("province", False)
@@ -315,6 +315,9 @@ def registered(request):
                                      password=password,
                                      first_name=first_name,
                                      last_name=last_name)
+    
+    company = company(company_name=companyname)
+    company.save()
 
     detail = user_detail(jobtitle=jobtitle,
                          company=company,
