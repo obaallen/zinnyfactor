@@ -14,11 +14,11 @@ global cat
 # Create your views here.
 def index(request):
     if request.user.is_authenticated:
-        return redirect('https://zinnyfactor.com')
+        return redirect('https://zinnyfactor.com/blog')
     else:
         posts = []
         # API call to get all current posts
-        res = requests.get("http://www.zinnyfactor.com/wp-json/wp/v2/posts")
+        res = requests.get("http://www.zinnyfactor.com/blog/wp-json/wp/v2/posts")
         if res.status_code != 200:
             raise Exception("ERROR: API request unsuccessful.")
 
