@@ -1,4 +1,4 @@
-{% extends "home/base.html" %}
+{% extends "jobs/base.html" %}
 {% load static %}
 
 {% block body %}
@@ -77,8 +77,7 @@
           <li><span class="p-comp"><b>{{ job.company }}</b></span><br>
               <span class="p-left"><b>{{ job.title }}</b> </span><br>
               <span class="p-right">{{ job.location }}<br>
-              <a href="" class="job-link display" data-page="{{ job.ext_id }}">view job</a><a href="{{ job.apply }}"  target="_blank" class="display1">Apply</a> |
-              {% if user.is_authenticated %}<a href="" class="userjob-link" data-page="{{ job.ext_id }}">save job</a>{% else %}<a href="" class="forcelogin">save job</a>{% endif %}</span></li>
+              <a href="" class="job-link display" data-page="{{ job.ext_id }}">view job</a><a href="{{ job.apply }}"  target="_blank" class="display1 btn btn-mybtn smallbtn">Apply</a></span></li>
       {% endfor %}
     </ul>
     <nav aria-label="..." class="center">

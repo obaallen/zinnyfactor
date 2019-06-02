@@ -2,61 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       var x = window.matchMedia("(min-width: 650px)")
 
-      document.querySelector('#advice').onclick = () => {
-
-            var col1 = document.querySelector('#col1');
-            var col2 = document.querySelector('#col2');
-            var col3 = document.querySelector('#col3');
-            var col4 = document.querySelector('#col4');
-
-            if (x.matches) {
-              col1.style.display = "none";
-              col2.style.display = "block";
-              col3.style.display = "none";
-              col4.style.display = "none";
-
-              return false;
-            }
-       }
-
-       document.querySelector('#job').onclick = () => {
-
-             var col1 = document.querySelector('#col1');
-             var col2 = document.querySelector('#col2');
-             var col3 = document.querySelector('#col3');
-             var col4 = document.querySelector('#col4');
-
-             if (x.matches) {
-               col1.style.display = "none";
-               col2.style.display = "none";
-               col3.style.display = "block";
-               col4.style.display = "none";
-
-               return false;
-             }
-        }
-
-        document.querySelector('#network').onclick = () => {
-
-              var col1 = document.querySelector('#col1');
-              var col2 = document.querySelector('#col2');
-              var col3 = document.querySelector('#col3');
-              var col4 = document.querySelector('#col4');
-
-              if (x.matches) {
-                col1.style.display = "none";
-                col2.style.display = "none";
-                col3.style.display = "none";
-                col4.style.display = "block";
-
-                return false;
-              }
-         }
-
-     document.querySelector('#register').onsubmit = () => {
-              return validateRegister()
-      }
-
       // Set links up to load job section.
       document.querySelectorAll('.job-link').forEach(link => {
           link.onclick = () => {
@@ -69,30 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
           };
       });
 
-      document.querySelectorAll('.forcelogin').forEach(link => {
-          link.onclick = () => {
-            alert("Log in/Register to save jobs to your profile");
-            return false;
-          };
-      });
-
       // Set links up to save job for user.
-      document.querySelectorAll('.userjob-link').forEach(link => {
-          link.onclick = () => {
-              const job_id = link.dataset.page;
-              postjob(job_id)
-              alert("Job has been saved to your profile.");
-              return false;
-          };
-      });
-
-      // Set links up to delete saved job for user.
-      document.querySelectorAll('.deletejob').forEach(link => {
-          link.onclick = () => {
-              const job_id = link.dataset.page;
-              deletejob(job_id)
-          };
-      });
+      // document.querySelectorAll('.userjob-link').forEach(link => {
+      //     link.onclick = () => {
+      //         const job_id = link.dataset.page;
+      //         postjob(job_id)
+      //         alert("Job has been saved to your profile.");
+      //         return false;
+      //     };
+      // });
 
       // Load specific job.
       function loadjob(id) {
@@ -118,41 +48,41 @@ document.addEventListener('DOMContentLoaded', () => {
           request.send()
       };
 
-      function postjob(id) {
-          const request = new XMLHttpRequest();
-          request.open('Post', '/user_map');
-          request.onload = () => {
-              const data = JSON.parse(request.responseText);
-          };
-          const data = new FormData();
-          data.append('job_id', id);
-          for (var p of data) {
-            console.log(p);
-          }
-          request.send(data)
-      };
-
-      function deletejob(id) {
-          const request = new XMLHttpRequest();
-          request.open('Post', '/delete');
-          request.onload = () => {
-              const data = JSON.parse(request.responseText);
-          };
-          const data = new FormData();
-          data.append('job_id', id);
-          for (var p of data) {
-            console.log(p);
-          }
-          request.send(data)
-      };
-
-      function validateRegister() {
-          var x = document.forms["register"]["username"].value;
-          var y = document.forms["register"]["password"].value;
-          var z = document.forms["register"]["email"].value;
-          if (x == "" || y == "" || z == "") {
-            alert("username, password and email must be filled out");
-            return false;
-          }
-        };
+      // function postjob(id) {
+      //     const request = new XMLHttpRequest();
+      //     request.open('Post', '/user_map');
+      //     request.onload = () => {
+      //         const data = JSON.parse(request.responseText);
+      //     };
+      //     const data = new FormData();
+      //     data.append('job_id', id);
+      //     for (var p of data) {
+      //       console.log(p);
+      //     }
+      //     request.send(data)
+      // };
+      //
+      // function deletejob(id) {
+      //     const request = new XMLHttpRequest();
+      //     request.open('Post', '/delete');
+      //     request.onload = () => {
+      //         const data = JSON.parse(request.responseText);
+      //     };
+      //     const data = new FormData();
+      //     data.append('job_id', id);
+      //     for (var p of data) {
+      //       console.log(p);
+      //     }
+      //     request.send(data)
+      // };
+      //
+      // function validateRegister() {
+      //     var x = document.forms["register"]["username"].value;
+      //     var y = document.forms["register"]["password"].value;
+      //     var z = document.forms["register"]["email"].value;
+      //     if (x == "" || y == "" || z == "") {
+      //       alert("username, password and email must be filled out");
+      //       return false;
+      //     }
+      //   };
 });
