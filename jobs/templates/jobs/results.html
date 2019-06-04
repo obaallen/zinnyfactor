@@ -8,22 +8,22 @@
   <div class="col-sm-8 d-flex justify-content-center">
     <form action="{% url 'jobsearch' %}" method="POST">{% csrf_token %}
       <div class="form-row">
-        <div class="col-sm-auto">
+        <div class="col-sm-auto mg-2">
           <span>Find The Right Job</span>
         </div>
-        <div class="col-sm-auto">
+        <div class="col-sm-auto mg-2">
           <input type="text" class="form-control" name="query" placeholder="Job Title, Keyword, Career">
         </div>
-        <div class="col-sm-auto">
+        <div class="col-sm-auto mg-2">
           <input type="text" class="form-control" name="city" placeholder="City">
         </div>
-        <div class="col-sm-auto">
+        <div class="col-sm-auto mg-2">
           <select class="form-control" name="country">
             <option value="ca">Canada</option>
           </select>
         </div>
-        <div class="col-sm-auto">
-          <button type="submit" class="btn btn-mybtn mb-2">Search</button>
+        <div class="col-sm-auto mg-2">
+          <button type="submit" class="btn btn-mybtn">Search</button>
         </div>
       </div>
     </form>
