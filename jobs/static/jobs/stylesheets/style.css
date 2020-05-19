@@ -792,6 +792,18 @@ footer small {
   padding-left: 18px !important;
 }
 
+.headhome .btn-mybotn {
+  color: #7d1d86 !important;
+  font-size: 50%;
+  font-weight: bold !important;
+  background-color: transparent !important;
+  border-color: #7d1d86 !important;
+  padding-top: 9px !important;
+  padding-right: 30px !important;
+  padding-bottom: 9px !important;
+  padding-left: 30px !important;
+}
+
 .headhome .btn-outline-mybtn:hover {
   color: #7d1d86 !important;
   font-size: 50%;
