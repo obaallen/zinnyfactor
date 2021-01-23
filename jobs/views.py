@@ -87,7 +87,7 @@ def subscribe(request):
 
 
     # API call to get all current posts
-    res = requests.post("https://us14.api.mailchimp.com/3.0/lists/cc295c5a74/members/", auth=('zinnyify','52fe88e70e42cee9cce82aa967306f34-us14'), data=body)
+    res = requests.post("https://us14.api.mailchimp.com/3.0/lists/cc295c5a74/members/", auth=('zinnyify','xxxxx'), data=body)
     if res.status_code != 200:
         print(res.content)
         raise Exception("ERROR: API request unsuccessful.")
@@ -98,7 +98,7 @@ def jobindex(request, page=0):
     jobs = []
     # API call to get all current jobs
     res = requests.get("https://www.themuse.com/api/public/jobs",
-                       params={"page": page,"location": "Toronto, Canada", "api_key": "eccc1f3fd28b1b61ce03bccc0befbcc8cef1e52ca9f241b5ef10209eee7fab03"})
+                       params={"page": page,"location": "Toronto, Canada", "api_key": "xxxxx"})
     if res.status_code != 200:
         raise Exception("ERROR: API request unsuccessful.")
 
@@ -145,7 +145,7 @@ def jobresult(request, page=0):
     jobs = []
     # API call to get all current jobs
     res = requests.get("https://www.themuse.com/api/public/jobs",
-                       params={"page": page, "location": "Toronto, Canada", "category": category, "level": joblevel, "api_key": "eccc1f3fd28b1b61ce03bccc0befbcc8cef1e52ca9f241b5ef10209eee7fab03"})
+                       params={"page": page, "location": "Toronto, Canada", "category": category, "level": joblevel, "api_key": "xxxx"})
     if res.status_code != 200:
         raise Exception("ERROR: API request unsuccessful.")
 
@@ -253,7 +253,7 @@ def saved(request):
         url = "https://www.themuse.com/api/public/jobs/"+id
         # API call to get all current jobs
         res = requests.get(url,
-                           params={"api_key": "eccc1f3fd28b1b61ce03bccc0befbcc8cef1e52ca9f241b5ef10209eee7fab03"})
+                           params={"api_key": "xxxx"})
         if res.status_code != 200:
             raise Exception("ERROR: API request unsuccessful.")
 
