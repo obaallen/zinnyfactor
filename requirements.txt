@@ -14,7 +14,7 @@ pyOpenSSL==17.5.0
 python-socketio==3.1.2
 pytz==2019.1
 pyxdg==0.25
-PyYAML==3.12
+PyYAML>=5.4
 reportlab==3.4.0
 requests==2.21.0
 requests-unixsocket==0.1.5
